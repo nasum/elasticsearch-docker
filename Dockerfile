@@ -14,7 +14,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >>  /etc/apk/reposito
     && chown -R elasticsearch:elasticsearch /usr/share/elasticsearch \
     && apk del curl \
     && rm -rf /var/cache/apk/ \
-    && bin/elasticsearch-plugin install analysis-kuromoji
+    && /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-kuromoji
 
 WORKDIR /usr/share/elasticsearch
 
