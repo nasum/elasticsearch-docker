@@ -13,7 +13,8 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >>  /etc/apk/reposito
     && adduser -DH -s /sbin/nologin elasticsearch \
     && chown -R elasticsearch:elasticsearch /usr/share/elasticsearch \
     && apk del curl \
-    && rm -rf /var/cache/apk/
+    && rm -rf /var/cache/apk/ \
+    && bin/elasticsearch-plugin install analysis-kuromoji
 
 WORKDIR /usr/share/elasticsearch
 
