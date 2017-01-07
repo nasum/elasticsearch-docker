@@ -14,6 +14,8 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >>  /etc/apk/reposito
     && chown -R elasticsearch:elasticsearch /usr/share/elasticsearch \
     && apk del curl \
     && rm -rf /var/cache/apk/ \
+    && echo "network.bind_host: 0.0.0.0" >> /usr/share/elasticsearch/config/elasticsearch.yml \
+    && echo "network.publish_host: _eth1:ipv4_" >> /usr/share/elasticsearch/config/elasticsearch.yml \
     && /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-kuromoji
 
 WORKDIR /usr/share/elasticsearch
