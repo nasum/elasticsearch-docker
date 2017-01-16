@@ -18,6 +18,8 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/edge/testing" >>  /etc/apk/reposito
     && echo "network.publish_host: _eth1:ipv4_" >> /usr/share/elasticsearch/config/elasticsearch.yml \
     && /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-kuromoji
 
+ENV PATH /usr/share/elasticsearch/bin:$PATH
+
 WORKDIR /usr/share/elasticsearch
 
 VOLUME /usr/share/elasticsearch/data
@@ -26,4 +28,4 @@ EXPOSE 9200 9300
 
 User elasticsearch
 
-CMD ["/usr/share/elasticsearch/bin/elasticsearch"]
+CMD ["elasticsearch"]
